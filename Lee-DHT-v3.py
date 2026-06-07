@@ -22,12 +22,12 @@ nombre_fichero = "datos_sensores.csv"
 if not os.path.exists(nombre_fichero):
     with open(nombre_fichero, mode='w', newline='') as f:
         escritor = csv.writer(f)
-        escritor.writerow(["Fecha y Hora", "Temp_Salon(C)", "Hum_Salon(%)", "Temp_Cocina(C)", "Hum_Cocina(%)"])
+        escritor.writerow(["Fecha y Hora", "Temp_S1(C)", "Hum_S1(%)", "Temp_S2(C)", "Hum_S2(%)"])
 
 print(f"Guardando datos en {nombre_fichero}. Pulsa Ctrl+C para parar.")
 
 
-# --- NUEVO: DATOS PARA GRÁFICA ---
+# --- DATOS PARA GRÁFICA ---
 tiempos = []
 temp1_vals = []
 temp2_vals = []
@@ -66,7 +66,7 @@ try:
 
             print(f"[{ahora_str}] S1: {t1}ºC | {h1}% | S2: {t2}ºC | {h2}% -> Guardado.")
 
-            # --- NUEVO: GUARDAR DATOS ---
+            # --- GUARDAR DATOS ---
             tiempos.append(ahora)
             temp1_vals.append(t1)
             temp2_vals.append(t2)
@@ -80,7 +80,7 @@ try:
             hum1_vals = hum1_vals[-50:]
             hum2_vals = hum2_vals[-50:]
 
-            # --- NUEVO: ACTUALIZAR GRÁFICAS ---
+            # --- ACTUALIZAR GRÁFICAS ---
             ax1.clear()
             ax2.clear()
 
